@@ -1,0 +1,189 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ManagementSystem
+build_property.RootNamespace = ManagementSystem
+build_property.ProjectDir = C:\Users\DELL\source\repos\ManagementSystem\ManagementSystem\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\DELL\source\repos\ManagementSystem\ManagementSystem
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Admission/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaXNzaW9uXEFkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Admission/AdmissionTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaXNzaW9uXEFkbWlzc2lvblRhYmxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Admission/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaXNzaW9uXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Admission/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaXNzaW9uXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Admission/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaXNzaW9uXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Admission/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaXNzaW9uXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Course/CourseTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXENvdXJzZVRhYmxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Course/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Course/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Course/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Course/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Employee/CourseTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcQ291cnNlVGFibGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Employee/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Employee/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Employee/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Employee/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Employee/EmployeeTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRW1wbG95ZWVUYWJsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Home/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Home/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Inquiry/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5xdWlyeVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Inquiry/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5xdWlyeVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Inquiry/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5xdWlyeVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Inquiry/Table.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5xdWlyeVxUYWJsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Note/NotesTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZVxOb3Rlc1RhYmxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Note/Upload.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZVxVcGxvYWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Payment/Click.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxDbGljay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Payment/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Payment/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Payment/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Payment/Make.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxNYWtlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Payment/Payment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxQYXltZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/ManagementSystem/ManagementSystem/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-k76ghj5gli

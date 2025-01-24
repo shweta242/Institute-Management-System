@@ -1,0 +1,159 @@
+﻿@model IEnumerable<ManagementSystem.Models.Employee>
+
+@{
+    ViewData["Title"] = "Employee Table";
+}
+<nav class="navbar py-3 mb-5" style="background: linear-gradient(to right, #e0f7fa, #81d4fa, #0288d1, #01579b, #0288d1, #81d4fa, #e0f7fa);">
+    <div class="container-fluid d-flex justify-content-center align-items-center">
+        <a href="/" class="navbar-brand">
+            <img src="~/Image/Picsart_24-12-07_18-34-26-772 (2).png" style="width:80px;" alt="Logo" />
+        </a>
+        <h1 class="display-4 fw-bold mx-auto text-center text-white">Employee Table</h1>
+    </div>
+</nav>
+
+<div class="container-fluid my-3">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <!-- Left Section: Total Employees -->
+        <div>
+            <h4 class="text-secondary">Total Employees: <span class="text-dark fw-bold">@Model.Count()</span></h4>
+        </div>
+
+        <!-- Right Section: Search Bar -->
+        <div class="ms-auto d-flex align-items-center">
+            <form asp-controller="Employee" asp-action="Table" method="get" class="d-flex">
+                <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" class="form-control me-2" placeholder="Search employees...">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Action Buttons (Initially Hidden) -->
+    <div class="mb-3 d-flex justify-content-between" id="actionButtons" style="display: none;">
+        <!-- Left Side: Create New and Back Page buttons -->
+        <div class="d-flex gap-3">
+            <a asp-action="Create" class="btn btn-success btn-sm">Create New</a>
+            <a asp-action="Dashboard" asp-controller="Home" class="btn btn-secondary btn-sm">Back Page</a>
+        </div>
+
+        <!-- Right Side: Edit, Details, Delete, WhatsApp, and Message buttons -->
+        <div class="d-flex gap-3">
+            <button id="editBtn" class="btn btn-warning btn-sm" disabled>
+                <i class="fas fa-edit"></i> Edit
+            </button>
+
+            <button id="detailsBtn" class="btn btn-info btn-sm" disabled>
+                <i class="fas fa-info-circle"></i> Details
+            </button>
+
+            <button id="deleteBtn" class="btn btn-danger btn-sm" disabled>
+                <i class="fas fa-trash"></i> Delete
+            </button>
+            <button id="printBtn" class="btn btn-dark btn-sm" disabled>
+                <i class="fas fa-print"></i> Print
+            </button>
+        </div>
+    </div>
+
+    <!-- Employee Table with Scrollbar -->
+    <div style="max-height: 400px; overflow: auto; border: 1px solid #ccc; margin: 20px; padding: 10px; overflow-x: auto;">
+        <table class="table table-striped table-hover table-bordered" id="Table" style="min-width: 300px;">
+            
+            <thead class="thead-dark bg-primary text-white sticky-lg-top">
+
+                <tr>
+                    <th class="sticky-header">Name</th>
+                    <th class="sticky-header">Gender</th>
+                    <th class="sticky-header">Email</th>
+                    <th class="sticky-header">Contact No</th>
+                    <th class="sticky-header">Department</th>
+                    <th class="sticky-header">Specialized Subject</th>
+                    <th class="sticky-header">Designation</th>
+                    <th class="sticky-header">Date of Joining</th>
+                    <th class="sticky-header">Salary</th>
+                    <th class="sticky-header">ID Proof Type</th>
+                    <th class="sticky-header">ID Proof Number</th>
+                    <th class="sticky-header">Status</th>
+                    <th class="sticky-header">Experience</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="selectable-row" data-id="@item.Id" data-name="@item.Name">
+                        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Gender)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ContactNo)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Department)</td>
+                        <td>@Html.DisplayFor(modelItem => item.SpecializedSubject)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Designation)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DateOfJoing)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Salary)</td>
+                        <td>@Html.DisplayFor(modelItem => item.IdProofType)</td>
+                        <td>@Html.DisplayFor(modelItem => item.IdProofNumber)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Experience)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<style>
+    body {
+        background: linear-gradient(to bottom, #a5d6a7, #e1f5fe, #b2ebf2, #a5d6a7);
+        /*background: linear-gradient(to right, #e8f5e9, #f0f4c3, #fff9c4, #ffffff);*/
+    }
+</style>
+
+@section Scripts {
+    <script>
+        let selectedRow = null;
+        let selectedEmployeeId = null;
+        let selectedAction = null;
+        let selectedEmployeeName = null;
+
+        document.querySelectorAll('.selectable-row').forEach(row => {
+            row.addEventListener('click', (e) => {
+                if (selectedRow) {
+                    selectedRow.classList.remove('selected-row');
+                }
+                selectedRow = row;
+                selectedRow.classList.add('selected-row');
+
+                const actionButtons = document.querySelectorAll('#editBtn, #deleteBtn, #printBtn, #detailsBtn');
+                actionButtons.forEach(button => button.disabled = false);
+
+                selectedEmployeeId = row.getAttribute('data-id');
+                selectedEmployeeName = row.getAttribute('data-name');
+            });
+        });
+
+        document.querySelector('#editBtn').addEventListener('click', () => confirmAction('edit'));
+        document.querySelector('#deleteBtn').addEventListener('click', () => confirmAction('delete'));
+        document.querySelector('#printBtn').addEventListener('click', () => window.print());
+        document.querySelector('#detailsBtn').addEventListener('click', () => confirmAction('details'));
+
+        function confirmAction(action) {
+            if (!selectedRow) {
+                alert("Please select an employee before performing this action.");
+                return;
+            }
+            selectedAction = action;
+            let message = `Are you sure you want to ${action} employee "${selectedEmployeeName}"?`;
+            if (action === 'delete') {
+                message += " This action cannot be undone.";
+            }
+            if (confirm(message)) {
+                window.location.href = `/Employee/${capitalize(action)}/${selectedEmployeeId}`;
+            }
+        }
+
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+    </script>
+}

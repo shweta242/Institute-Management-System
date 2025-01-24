@@ -1,0 +1,140 @@
+﻿@model ManagementSystem.Models.Employee
+
+@{
+    ViewData["Title"] = "Edit Employee";
+}
+
+<div class="container mt-5">
+    <!-- Page Header -->
+    <div class="text-center mb-4">
+        <h1 class="fw-bold text-primary">Edit Employee</h1>
+        <p class="text-muted">Edit the details of the selected employee.</p>
+    </div>
+
+    <!-- Edit Form -->
+    <div class="card shadow-lg border-0">
+        <div class="card-header text-white" style="background: #007bff;">
+            <h3 class="text-center mb-0">Employee Details</h3>
+        </div>
+        <div class="card-body p-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover">
+                        <tbody>
+                            <tr>
+                                <td class="fw-bold text-primary">Name</td>
+                                <td>
+                                    <input asp-for="Name" class="form-control" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-primary">Gender</td>
+                                <td>
+                                    <input asp-for="Gender" class="form-control" />
+                                    <span asp-validation-for="Gender" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-primary">Email</td>
+                                <td>
+                                    <input asp-for="Email" class="form-control" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-primary">Contact No</td>
+                                <td>
+                                    <input asp-for="ContactNo" class="form-control" />
+                                    <span asp-validation-for="ContactNo" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-primary">Department</td>
+                                <td>
+                                    <input asp-for="Department" class="form-control" />
+                                    <span asp-validation-for="Department" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-primary">Specialized Subject</td>
+                                <td>
+                                    <input asp-for="SpecializedSubject" class="form-control" />
+                                    <span asp-validation-for="SpecializedSubject" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-primary">Designation</td>
+                                <td>
+                                    <input asp-for="Designation" class="form-control" />
+                                    <span asp-validation-for="Designation" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-primary">Date of Joining</td>
+                                <td>
+                                    <input asp-for="DateOfJoing" class="form-control" />
+                                    <span asp-validation-for="DateOfJoing" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-primary">Salary</td>
+                                <td>
+                                    <input asp-for="Salary" class="form-control" />
+                                    <span asp-validation-for="Salary" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-primary">ID Proof Type</td>
+                                <td>
+                                    <input asp-for="IdProofType" class="form-control" />
+                                    <span asp-validation-for="IdProofType" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-primary">ID Proof Number</td>
+                                <td>
+                                    <input asp-for="IdProofNumber" class="form-control" />
+                                    <span asp-validation-for="IdProofNumber" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-primary">Status</td>
+                                <td>
+                                    <input asp-for="Status" class="form-control" />
+                                    <span asp-validation-for="Status" class="text-danger"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-primary">Experience</td>
+                                <td>
+                                    <input asp-for="Experience" class="form-control" />
+                                    <span asp-validation-for="Experience" class="text-danger"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <!-- Save Changes Button -->
+                    <div class="form-group">
+                        <input type="submit" value="Save Changes" class="btn btn-primary px-4 py-2" />
+                    </div>
+
+                    <!-- Back Button -->
+                    <div class="form-group">
+                        <a asp-action="EmployeeTable" class="btn btn-secondary px-4 py-2">
+                            <i class="bi bi-arrow-left"></i> Back to List
+                        </a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    
+</div>

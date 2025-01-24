@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ManagementSystem.Models.Note>
+
+@{
+    ViewData["Title"] = "Upload";
+}
+<nav class="navbar navbar-light bg-warning">
+    <div class="container-fluid d-flex justify-content-center align-items-center">
+        <a href="/" class="navbar-brand">
+            <img src="~/Images/Picsart_24-12-07_18-34-26-772 (1).png" style="width:80px;" alt="Logo" />
+        </a>
+        <h1 class="display-4 fw-bold mx-auto text-center text-white"> Upload Note</h1>
+    </div>
+</nav>
+
+
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success text-center">@TempData["Success"]</div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger text-center">@TempData["Error"]</div>
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title text-center mb-0">Upload Your Note</h5>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Upload" method="post" enctype="multipart/form-data">
+                        <div class="form-group mb-4">
+                            <label for="file" class="form-label">Select File</label>
+                            <input type="file" name="file" class="form-control" required />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Upload</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <a asp-action="NotesTable" class="btn btn-secondary">Back to Notes List</a>
+</div>
+<style>
+    body {
+        background: linear-gradient(to right, #dbeaff, #b3e5fc, #d5f5e3, #ffffff);
+        /*background: linear-gradient(to right, #e8f5e9, #f0f4c3, #fff9c4, #ffffff);*/
+    }
+</style>

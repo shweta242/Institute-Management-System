@@ -1,0 +1,173 @@
+﻿@model ManagementSystem.Models.Inquiry
+
+@{
+    ViewData["Title"] = "Create Inquiry";
+}
+
+<div class="container my-5">
+    <!-- Header Section -->
+    <nav class="navbar navbar-light bg-info py-3">
+        <div class="container-fluid d-flex justify-content-center align-items-center">
+            @* <a href="/" class="navbar-brand">
+            <img src="~/Images/Picsart_24-12-07_18-34-26-772 (1).png" style="width:80px;" alt="Logo" />
+            </a> *@
+            <h1 class="display-4 fw-bold mx-auto text-center text-white">Add New Inquiry </h1>
+        </div>
+    </nav>
+
+    <!-- Form Section -->
+    <div class="card shadow-sm border-0 rounded p-4" style="background-color: #f4f8fb;">
+        <div class="card-body">
+            <h4 class="text-center text-info mb-4"><i class="bi bi-journal-text"></i> Inquiry Details</h4>
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <!-- Name -->
+                <div class="mb-3">
+                    <label for="Name" class="form-label text-dark"><i class="bi bi-person-fill"></i> Full Name</label>
+                    <input asp-for="Name" class="form-control shadow-sm" style="background-color: #e2f9e1;" placeholder="Enter full name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <!-- Contact -->
+                <div class="mb-3">
+                    <label for="Contact" class="form-label text-dark"><i class="bi bi-telephone-fill"></i> Contact Number</label>
+                    <input asp-for="Contact" class="form-control shadow-sm" style="background-color: #e2f9e1;" placeholder="Enter contact number" />
+                    <span asp-validation-for="Contact" class="text-danger"></span>
+                </div>
+
+                <!-- Gender -->
+                <div class="mb-3">
+                    <label for="Gender" class="form-label text-dark"><i class="bi bi-gender-ambiguous"></i> Gender</label>
+                    <select asp-for="Gender" class="form-select shadow-sm" style="background-color: #e2f9e1;">
+                        <option value="" selected>Choose Gender...</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+
+                <!-- Address -->
+                <div class="mb-3">
+                    <label for="Address" class="form-label text-dark"><i class="bi bi-house-door-fill"></i> Address</label>
+                    <input asp-for="Address" class="form-control shadow-sm" style="background-color: #e2f9e1;" placeholder="Enter address" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+
+                <!-- City -->
+                <div class="mb-3">
+                    <label for="City" class="form-label text-dark"><i class="bi bi-geo-alt-fill"></i> City</label>
+                    <select asp-for="City" class="form-select shadow-sm" style="background-color: #e2f9e1;">
+                        <option value="">Select City</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Pune">Pune</option>
+                        <option value="Nagpur">Nagpur</option>
+                        <option value="Nashik">Nashik</option>
+                        <option value="Aurangabad">Aurangabad</option>
+                        <option value="Solapur">Solapur</option>
+                        <option value="Thane">Thane</option>
+                        <option value="Satara">Satara</option>
+                        <option value="Kolhapur">Kolhapur</option>
+                        <option value="Amravati">Amravati</option>
+                        <option value="Chandrapur">Chandrapur</option>
+                        <option value="Jalgaon">Jalgaon</option>
+                        <option value="Raigad">Raigad</option>
+                        <option value="Ratnagiri">Ratnagiri</option>
+                        <option value="Vasai-Virar">Vasai-Virar</option>
+                        <option value="Latur">Latur</option>
+                        <option value="Kalyan-Dombivli">Kalyan-Dombivli</option>
+                        <option value="Bhiwandi">Bhiwandi</option>
+                        <option value="Pimpri-Chinchwad">Pimpri-Chinchwad</option>
+                        <option value="Sangli">Sangli</option>
+                        <option value="Yavatmal">Yavatmal</option>
+                        <option value="Sindhudurg">Sindhudurg</option>
+                        <option value="Other">Other (please specify)</option>
+                    </select>
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+
+                <!-- DOB -->
+                <div class="mb-3">
+                    <label for="Dob" class="form-label text-dark"><i class="bi bi-calendar-fill"></i> Date of Birth</label>
+                    <input asp-for="Dob" type="date" class="form-control shadow-sm" style="background-color: #e2f9e1;" />
+                    <span asp-validation-for="Dob" class="text-danger"></span>
+                </div>
+
+                <!-- DOB -->
+                <div class="mb-3">
+                    <label for="InquiryDate" class="form-label text-dark"><i class="bi bi-calendar-fill"></i> Inquiry Date</label>
+                    <input asp-for="InquiryDate" type="date" class="form-control shadow-sm" style="background-color: #e2f9e1;" />
+                    <span asp-validation-for="InquiryDate" class="text-danger"></span>
+                </div>
+
+                <!-- Qualification -->
+                <div class="mb-3">
+                    <label for="Qualification" class="form-label text-dark"><i class="bi bi-award-fill"></i> Qualification</label>
+                    <select asp-for="Qualification" class="form-select shadow-sm" style="background-color: #e2f9e1;">
+                        <option value="">Select Qualification</option>
+                        <option value="High School">High School</option>
+                        <option value="Undergraduate">Undergraduate</option>
+                        <option value="Postgraduate">Postgraduate</option>
+                        <option value="PhD">PhD</option>
+                        <option value="Diploma">Diploma</option>
+                        <option value="Certificate">Certificate</option>
+                        <option value="Other">Other (please specify)</option>
+
+                    </select> <span asp-validation-for="Qualification" class="text-danger"></span>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="Email" class="form-label text-dark"><i class="bi bi-envelope-fill"></i> Email Address</label>
+                    <input asp-for="Email" type="email" class="form-control shadow-sm" style="background-color: #e2f9e1;" placeholder="Enter email address" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <!-- Course -->
+                <div class="mb-3">
+                    <label for="Course" class="form-label text-dark"><i class="bi bi-book-fill"></i> Course</label>
+                    <Select asp-for="Course" class="form-control shadow-sm" style="background-color: #e2f9e1;"asp-items="ViewBag.Courses">
+                        <option>Select Course</option>
+                    </Select>
+                    <span asp-validation-for="Course" class="text-danger"></span>
+                </div>
+
+                <!-- Fees -->
+                <div class="mb-3">
+                    <label for="Fees" class="form-label text-dark"><i class="bi bi-currency-dollar"></i> Fees</label>
+                    <input asp-for="Fees" type="number" class="form-control shadow-sm" style="background-color: #e2f9e1;" placeholder="Enter fees" />
+                    <span asp-validation-for="Fees" class="text-danger"></span>
+                </div>
+
+                <!-- Remark -->
+                <div class="mb-3">
+                    <label for="Remark" class="form-label text-dark"><i class="bi bi-chat-dots-fill"></i> Remarks</label>
+                    <textarea asp-for="Remark" class="form-control shadow-sm" style="background-color: #e2f9e1;" rows="3" placeholder="Enter remarks"></textarea>
+                    <span asp-validation-for="Remark" class="text-danger"></span>
+                </div>
+
+                <!-- Inquiry Taken By -->
+                <div class="mb-3">
+                    <label for="InquiryTakenBy" class="form-label text-dark"><i class="bi bi-person-circle"></i> Inquiry Taken By</label>
+                    <input asp-for="InquiryTakenBy" class="form-control shadow-sm" style="background-color: #e2f9e1;" placeholder="Enter name" />
+                    <span asp-validation-for="InquiryTakenBy" class="text-danger"></span>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success btn-lg mt-4 px-5 shadow-sm">
+                        <i class="bi bi-check-circle"></i> Create Inquiry
+                    </button>
+                    <a asp-action="Table" class="btn btn-outline-primary btn-lg mt-4 px-5 shadow-sm">
+                        <i class="bi bi-arrow-left-circle"></i> Back to List
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Add Bootstrap and Icon CDN Links -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">

@@ -1,0 +1,202 @@
+﻿@model ManagementSystem.Models.Course
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<nav class="navbar navbar-light bg-info py-3">
+    <div class="container-fluid d-flex justify-content-center align-items-center">
+        @* <a href="/" class="navbar-brand">
+        <img src="~/Images/Picsart_24-12-07_18-34-26-772 (1).png" style="width:80px;" alt="Logo" />
+        </a> *@
+        <h1 class="display-4 fw-bold mx-auto text-center text-white">Add New Course's </h1>
+    </div>
+</nav>
+<hr />
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Course Name -->
+            <div class="form-group border p-3 rounded bg-light">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" placeholder="Enter Course Name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <!-- Front-End Languages -->
+            <div class="form-group border p-3 rounded bg-light">
+                <h5>Select Front-End Languages:</h5>
+                <input type="hidden" asp-for="FrontEnd" value="false" />
+                <div class="checkbox-group">
+                    <div class="form-check">
+                        <input type="checkbox" asp-for="FrontEnd" value="HTML" class="form-check-input" id="htmlCheck" />
+                        <label class="form-check-label" for="htmlCheck">HTML</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" asp-for="FrontEnd" value="CSS" class="form-check-input" id="cssCheck" />
+                        <label class="form-check-label" for="cssCheck">CSS</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" asp-for="FrontEnd" value="BOOTSTRAP" class="form-check-input" id="bootstrapCheck" />
+                        <label class="form-check-label" for="bootstrapCheck">BOOTSTRAP</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" asp-for="FrontEnd" value="ANGULAR" class="form-check-input" id="angularCheck" />
+                        <label class="form-check-label" for="angularCheck">ANGULAR</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back-End Languages -->
+            <div class="form-group border p-3 rounded bg-light">
+                <h5>Select Back-End Languages:</h5>
+                <input type="hidden" asp-for="BackEnd" value="false" />
+                <div class="checkbox-group">
+                    <div class="form-check">
+                        <input type="checkbox" asp-for="BackEnd" value="C#" class="form-check-input" id="csharpCheck" />
+                        <label class="form-check-label" for="csharpCheck">C#</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" asp-for="BackEnd" value=".net" class="form-check-input" id="dotnetCheck" />
+                        <label class="form-check-label" for="dotnetCheck">.NET</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" asp-for="BackEnd" value="java" class="form-check-input" id="javaCheck" />
+                        <label class="form-check-label" for="javaCheck">Java</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" asp-for="BackEnd" value="python" class="form-check-input" id="pythonCheck" />
+                        <label class="form-check-label" for="pythonCheck">Python</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Database Languages -->
+            <div class="form-group border p-3 rounded bg-light">
+                <h5>Select Database Languages:</h5>
+                <input type="hidden" asp-for="DataBaseLanguage" value="false" />
+                <div class="checkbox-group">
+                    <div class="form-check">
+                        <input type="checkbox" asp-for="DataBaseLanguage" value="Mysql" class="form-check-input" id="mysqlCheck" />
+                        <label class="form-check-label" for="mysqlCheck">Mysql</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" asp-for="DataBaseLanguage" value="Sql" class="form-check-input" id="sqlCheck" />
+                        <label class="form-check-label" for="sqlCheck">SQL</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" asp-for="DataBaseLanguage" value="Mongodb" class="form-check-input" id="mongodbCheck" />
+                        <label class="form-check-label" for="mongodbCheck">Mongodb</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Duration -->
+            <div class="form-group border p-3 rounded bg-light">
+                <label asp-for="Duration" class="control-label"></label>
+                <input asp-for="Duration" class="form-control" placeholder="Enter Duration (e.g., 3 months)" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+
+            <!-- Course Fees -->
+            <div class="form-group border p-3 rounded bg-light">
+                <label asp-for="CourseFees" class="control-label"></label>
+                <input asp-for="CourseFees" class="form-control" placeholder="Enter Course Fees" />
+                <span asp-validation-for="CourseFees" class="text-danger"></span>
+            </div>
+
+            <!-- Course Format -->
+            <div class="form-group border p-3 rounded bg-light">
+                <label asp-for="CourseFormat" class="control-label"></label>
+                <input asp-for="CourseFormat" class="form-control" placeholder="Enter Course Format (e.g., Online, In-Person)" />
+                <span asp-validation-for="CourseFormat" class="text-danger"></span>
+            </div>
+
+            <!-- Course Description -->
+            <div class="form-group border p-3 rounded bg-light">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="3" placeholder="Provide Course Description"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <input type="submit" value="Create Course" class="btn btn-primary btn-lg w-100" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="text-center mt-3">
+    <a asp-action="CourseTable" asp-controller="Course" class="btn btn-secondary">Back to List</a>
+</div>
+
+<style>
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .checkbox-group .form-check {
+        margin-bottom: 10px;
+    }
+
+    .form-check-input {
+        margin-left: 10px;
+    }
+
+    .form-check-label {
+        color: #333;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+    .form-control {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, .5);
+        }
+
+    .border {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .bg-light {
+        background-color: #f8f9fa;
+    }
+
+    .p-3 {
+        padding: 15px;
+    }
+
+    .rounded {
+        border-radius: 5px;
+    }
+
+    .w-100 {
+        width: 100%;
+    }
+</style>

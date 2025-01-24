@@ -1,0 +1,79 @@
+﻿@model ManagementSystem.Models.Course
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container mt-5">
+    <!-- Page Header -->
+    <div class="text-center mb-4">
+        <h1 class="fw-bold text-primary">
+            <i class="bi bi-book"></i> Course Details
+        </h1>
+        <p class="text-muted">Explore the detailed course information below.</p>
+    </div>
+
+    <div class="card shadow-lg border-0">
+        <!-- Header with a different style -->
+        <div class="card-header text-white" style="background: #1d4ed8;">
+            <h3 class="text-center mb-0">Course Information</h3>
+        </div>
+        <div class="card-body p-4">
+            <!-- Table Layout with Dark Background -->
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead class="text-white" style="background-color: #4f46e5;">
+                        <tr>
+                            <th class="text-center" style="width: 30%;">Field</th>
+                            <th class="text-center" style="width: 70%;">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold text-primary">Course Name</td>
+                            <td>@Html.DisplayFor(model => model.Name)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-primary">Front-End Technology</td>
+                            <td>@Html.DisplayFor(model => model.FrontEnd)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-primary">Back-End Technology</td>
+                            <td>@Html.DisplayFor(model => model.BackEnd)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-primary">Database Language</td>
+                            <td>@Html.DisplayFor(model => model.DataBaseLanguage)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-primary">Duration</td>
+                            <td>@Html.DisplayFor(model => model.Duration)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-primary">Course Fees</td>
+                            <td>@Html.DisplayFor(model => model.CourseFees)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-primary">Course Format</td>
+                            <td>@Html.DisplayFor(model => model.CourseFormat)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-primary">Description</td>
+                            <td>@Html.DisplayFor(model => model.Description)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Action Buttons with better spacing -->
+            <div class="d-flex justify-content-end mt-4">
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning px-4 me-2 rounded-pill shadow-lg">
+                    <i class="bi bi-pencil-square"></i> Edit
+                </a>
+                <a asp-action="CourseTable" asp-controller="Course" class="btn btn-secondary px-4 rounded-pill shadow-lg">
+                    <i class="bi bi-arrow-left"></i> Back to List
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

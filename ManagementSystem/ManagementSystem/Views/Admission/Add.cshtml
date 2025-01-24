@@ -1,0 +1,393 @@
+﻿
+ @model ManagementSystem.Models.Student
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10 col-sm-12">
+            <nav class="navbar navbar-light bg-info py-3">
+                <div class="container-fluid d-flex justify-content-center align-items-center">
+                    @* <a href="/" class="navbar-brand">
+                    <img src="~/Images/Picsart_24-12-07_18-34-26-772 (1).png" style="width:80px;" alt="Logo" />
+                    </a> *@
+                    <h1 class="display-4 fw-bold mx-auto text-center text-white">Add New Inquiry </h1>
+                </div>
+            </nav>
+
+            <form asp-action="Create" method="post" class="p-4 shadow rounded-3 border border-info">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <!-- Name -->
+                <div class="form-group mb-4">
+                    <label asp-for="Name" class="form-label text-info">Name</label>
+                    <input asp-for="Name" class="form-control border-info" placeholder="Enter Full Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <!-- Date of Birth -->
+                <div class="form-group mb-4">
+                    <label asp-for="Dob" class="form-label text-info">Date of Birth</label>
+                    <input asp-for="Dob" type="date" class="form-control border-info" />
+                    <span asp-validation-for="Dob" class="text-danger"></span>
+                </div>
+
+                <!-- Gender -->
+                <div class="form-group mb-4">
+                    <label asp-for="Gender" class="form-label text-info">Gender</label>
+
+                    <!-- Dropdown for Gender selection -->
+                    <select asp-for="Gender" class="form-control border-info">
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+
+
+                <!-- Contact No -->
+                <div class="form-group mb-4">
+                    <label asp-for="ContactNo" class="form-label text-info">Contact No</label>
+                    <input asp-for="ContactNo" class="form-control border-info" placeholder="Enter Contact Number" />
+                    <span asp-validation-for="ContactNo" class="text-danger"></span>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group mb-4">
+                    <label asp-for="Email" class="form-label text-info">Email</label>
+                    <input asp-for="Email" class="form-control border-info" placeholder="Enter Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <!-- Parent Name -->
+                <div class="form-group mb-4">
+                    <label asp-for="ParentName" class="form-label text-info">Parent's Name</label>
+                    <input asp-for="ParentName" class="form-control border-info" placeholder="Enter Parent's Name" />
+                    <span asp-validation-for="ParentName" class="text-danger"></span>
+                </div>
+
+                <!-- Parent Contact No -->
+                <div class="form-group mb-4">
+                    <label asp-for="ParentContactNo" class="form-label text-info">Parent Contact No</label>
+                    <input asp-for="ParentContactNo" class="form-control border-info" placeholder="Enter Parent Contact Number" />
+                    <span asp-validation-for="ParentContactNo" class="text-danger"></span>
+                </div>
+
+                <!-- Address -->
+                <div class="form-group mb-4">
+                    <label asp-for="CurrentAddress" class="form-label text-info">Current Address</label>
+                    <input asp-for="CurrentAddress" class="form-control border-info" placeholder="Enter Current Address" />
+                    <span asp-validation-for="CurrentAddress" class="text-danger"></span>
+                </div>
+
+                <!-- Permanent Address -->
+                <div class="form-group mb-4">
+                    <label asp-for="PermanentAddress" class="form-label text-info">Permanent Address</label>
+                    <input asp-for="PermanentAddress" class="form-control border-info" placeholder="Enter Permanent Address" />
+                    <span asp-validation-for="PermanentAddress" class="text-danger"></span>
+                </div>
+
+                <!-- City -->
+                <div class="form-group mb-4">
+                    <label asp-for="City" class="form-label text-info">City</label>
+                    <input asp-for="City" class="form-control border-info" placeholder="Enter City" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+
+                <!-- Qualification -->
+                <div class="form-group mb-4">
+                    <label asp-for="Qualification" class="form-label text-info">Qualification</label>
+                    <input asp-for="Qualification" class="form-control border-info" placeholder="Enter Qualification" />
+                    <span asp-validation-for="Qualification" class="text-danger"></span>
+                </div>
+
+                <!-- Previous School/College -->
+                <div class="form-group mb-4">
+                    <label asp-for="PreviousSchoolClg" class="form-label text-info">Previous School/College</label>
+                    <input asp-for="PreviousSchoolClg" class="form-control border-info" placeholder="Enter Previous School/College" />
+                    <span asp-validation-for="PreviousSchoolClg" class="text-danger"></span>
+                </div>
+
+                <!-- Marks -->
+                <div class="form-group mb-4">
+                    <label asp-for="Marks" class="form-label text-info">Marks</label>
+                    <input asp-for="Marks" class="form-control border-info" placeholder="Enter Marks" />
+                    <span asp-validation-for="Marks" class="text-danger"></span>
+                </div>
+
+
+
+                <!-- Admission Date -->
+                <div class="form-group mb-4">
+                    <label asp-for="AdmissionDate" class="form-label text-info">Admission Date</label>
+                    <input asp-for="AdmissionDate" type="date" class="form-control border-info" />
+                    <span asp-validation-for="AdmissionDate" class="text-danger"></span>
+                </div>
+
+                <!-- Registration Fees -->
+                <div class="form-group mb-4">
+                    <label asp-for="RegistrationFees" class="form-label text-info">Registration Fees</label>
+                    <input asp-for="RegistrationFees" class="form-control border-info" value="1000" readonly />
+                    <span asp-validation-for="RegistrationFees" class="text-danger"></span>
+                </div>
+
+                <!-- Payment Mode -->
+                <div class="form-group mb-4">
+                    <label asp-for="PaymentMode" class="form-label text-info">Payment Mode</label>
+                    <select asp-for="PaymentMode" class="form-select border-info">
+                        <option value="">Select Payment Mode</option>
+                        <option value="Online">Online</option>
+                        <option value="Cash">Cash</option>
+                    </select>
+                    <span asp-validation-for="PaymentMode" class="text-danger"></span>
+                </div>
+
+                <!-- Transaction ID -->
+                <div class="form-group mb-4" id="TransactionIdField" style="display: none;">
+                    <label asp-for="TransactionId" class="form-label text-info">Transaction ID</label>
+                    <input asp-for="TransactionId" class="form-control border-info" />
+                    <span asp-validation-for="TransactionId" class="text-danger"></span>
+                </div>
+
+                <!-- Course Fees -->
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Course" class="form-label">Course</label>
+                    <input asp-for="Course" class="form-control" placeholder="Enter course fee" />
+                    <span asp-validation-for="Course" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="CourseFees" class="form-label">Course Fees</label>
+                    <input asp-for="CourseFees" class="form-control" placeholder="Enter course fee" id="CourseFees" />
+                    <span asp-validation-for="CourseFees" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Discount" class="form-label">Discount (%)</label>
+                    <input id="Discount" asp-for="Discount" class="form-control" placeholder="Enter discount percentage" id="Discount" />
+                    <span asp-validation-for="Discount" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="DiscountedCourseFees" class="form-label">Discounted Course Fees</label>
+                    <input asp-for="DiscountedCourseFees" class="form-control" placeholder="Discounted course fee" id="DiscountedFees" readonly />
+                    <span asp-validation-for="DiscountedCourseFees" class="text-danger"></span>
+                </div>
+
+
+                <!-- Installments -->
+                <h5 class="text-success mt-4 mb-3">Installments</h5>
+                <div class="form-group mb-4">
+                    <label asp-for="Installment" class="form-label text-info">Installments</label>
+                    <select asp-for="Installment" class="form-select border-info" id="Installment">
+                        <option value="">Select Installments</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                    <span asp-validation-for="Installment" class="text-danger"></span>
+                </div>
+
+                <div id="InstallmentFields"></div>
+                <!-- Admission Taken By -->
+                <div class="form-group mb-4">
+                    <label asp-for="AddmissionTakenBy" class="form-label text-info">Admission Taken By</label>
+                    <input asp-for="AddmissionTakenBy" class="form-control border-info" placeholder="Enter Staff Name" />
+                    <span asp-validation-for="AddmissionTakenBy" class="text-danger"></span>
+                </div>
+
+                <!-- Back and Submit Button -->
+                <div class="form-group text-center">
+                    <a asp-action="AdmissionTable" class="btn btn-lg btn-secondary px-5">Back</a>
+                    <input type="submit" value="Create" class="btn btn-lg btn-success px-5 ml-3" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+@* JavaScript to handle dynamic visibility of the Transaction ID field based on the Payment Mode selection *@
+
+
+@section Scripts
+{
+    <script>
+
+
+        document.getElementById("PaymentMode").addEventListener("change", function () {
+            const transactionIdField = document.getElementById("TransactionIdField");
+            if (this.value === "Online") {
+                transactionIdField.style.display = "block";
+            } else {
+                transactionIdField.style.display = "none";
+            }
+        });
+
+
+        // Set default value for the input field in the Registration fees
+        function calculateDiscountedFees() {
+            var courseFees = (parseFloat(document.getElementById("CourseFees").value) || 0) - 1000;
+            var discount = parseFloat(document.getElementById("Discount").value) || 0;
+            var discountedFees = courseFees && discount >= 0 ? (courseFees - (courseFees * discount / 100)).toFixed(2) : '';
+            document.getElementById("DiscountedFees").value = discountedFees;
+        }
+
+        // Event listeners for Course Fees and Discount fields
+        ["CourseFees", "Discount"].forEach(id => document.getElementById(id).addEventListener("input", calculateDiscountedFees));
+
+        document.getElementById("Installment").addEventListener("change", function () {
+            const installmentFields = document.getElementById("InstallmentFields");
+            const discountedFees = parseFloat(document.getElementById("DiscountedFees").value || 0); // Get discounted fees
+            const count = parseInt(this.value, 10) || 0; // Get the number of installments
+
+            installmentFields.innerHTML = ""; // Clear previous fields
+
+            if (count > 0) {
+                const installmentAmount = Math.floor((discountedFees / count) + 1000); // Base amount per installment
+                const remainder = (discountedFees + (count * 1000)) % count; // Calculate remainder for distribution
+
+                let table = `
+                             <table class="table">
+                                 <thead>
+                                     <tr>
+                                         <th>Installment</th>
+                                         <th>Date</th>
+                                         <th>Amount</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody>`;
+
+                if (count >= 1) {
+                    const amount = installmentAmount + remainder;
+                    table += `
+                                 <tr>
+                                     <td class="fw-bold">First Installment</td>
+                                     <td><input type="date" id="FirstDate" name="FirstDate" class="form-control" /></td>
+                                     <td><input type="number" name="FristInsta" class="form-control" value="${amount}" readonly /></td>
+                                 </tr>`;
+                }
+
+                if (count >= 2) {
+                    const amount = installmentAmount;
+                    table += `
+                                 <tr>
+                                     <td class="fw-bold">Second Installment</td>
+                                     <td><input type="date" id="SecondDate" name="SecondDate" class="form-control" readonly /></td>
+                                     <td><input type="number" name="SecondInsta" class="form-control" value="${amount}" readonly /></td>
+                                 </tr>`;
+                }
+
+                if (count >= 3) {
+                    const amount = installmentAmount;
+                    table += `
+                                 <tr>
+                                     <td class="fw-bold">Third Installment</td>
+                                     <td><input type="date" id="ThirdDate" name="ThirdDate" class="form-control" readonly /></td>
+                                     <td><input type="number" name="ThirdInsta" class="form-control" value="${amount}" readonly /></td>
+                                 </tr>`;
+                }
+
+                if (count >= 4) {
+                    const amount = installmentAmount;
+                    table += `
+                                 <tr>
+                                     <td class="fw-bold">Fourth Installment</td>
+                                     <td><input type="date" id="FourthDate" name="FourthDate" class="form-control" readonly /></td>
+                                     <td><input type="number" name="FourthInsta" class="form-control" value="${amount}" readonly /></td>
+                                 </tr>`;
+                }
+
+                if (count >= 5) {
+                    const amount = installmentAmount;
+                    table += `
+                                 <tr>
+                                     <td class="fw-bold">Fifth Installment</td>
+                                     <td><input type="date" id="FifthDate" name="FifthDate" class="form-control" readonly /></td>
+                                     <td><input type="number" name="FifthInsta" class="form-control" value="${amount}" readonly /></td>
+                                 </tr>`;
+                }
+
+                if (count === 6) {
+                    const amount = installmentAmount;
+                    table += `
+                                 <tr>
+                                     <td class="fw-bold">Sixth Installment</td>
+                                     <td><input type="date" id="SixthDate" name="SixDate" class="form-control" readonly /></td>
+                                     <td><input type="number" name="SixInsta" class="form-control" value="${amount}" readonly /></td>
+                                 </tr>`;
+                }
+
+                table += `
+                                 </tbody>
+                             </table>`;
+                installmentFields.innerHTML += table;
+
+                // Add event listener for first date field
+                document.getElementById("FirstDate").addEventListener("change", function () {
+                    const firstDateValue = this.value;
+                    if (firstDateValue) {
+                        let currentDate = new Date(firstDateValue);
+
+                        if (count >= 2) {
+                            currentDate.setMonth(currentDate.getMonth() + 1);
+                            const secondDateField = document.getElementById("SecondDate");
+                            if (secondDateField) {
+                                secondDateField.value = currentDate.toISOString().split("T")[0];
+                            }
+                        }
+
+                        if (count >= 3) {
+                            currentDate.setMonth(currentDate.getMonth() + 1);
+                            const thirdDateField = document.getElementById("ThirdDate");
+                            if (thirdDateField) {
+                                thirdDateField.value = currentDate.toISOString().split("T")[0];
+                            }
+                        }
+
+                        if (count >= 4) {
+                            currentDate.setMonth(currentDate.getMonth() + 1);
+                            const fourthDateField = document.getElementById("FourthDate");
+                            if (fourthDateField) {
+                                fourthDateField.value = currentDate.toISOString().split("T")[0];
+                            }
+                        }
+
+                        if (count >= 5) {
+                            currentDate.setMonth(currentDate.getMonth() + 1);
+                            const fifthDateField = document.getElementById("FifthDate");
+                            if (fifthDateField) {
+                                fifthDateField.value = currentDate.toISOString().split("T")[0];
+                            }
+                        }
+
+                        if (count === 6) {
+                            currentDate.setMonth(currentDate.getMonth() + 1);
+                            const sixthDateField = document.getElementById("SixthDate");
+                            if (sixthDateField) {
+                                sixthDateField.value = currentDate.toISOString().split("T")[0];
+                            }
+                        }
+                    }
+                });
+            } else {
+                installmentFields.innerHTML = "<p>No installments to display.</p>";
+            }
+        });
+    </script>
+
+}
+

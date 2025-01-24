@@ -1,0 +1,140 @@
+﻿@model ManagementSystem.Models.Student
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container mt-5">
+    <!-- Header Section -->
+    <nav class="navbar navbar-light bg-danger py-3">
+        <div class="container-fluid d-flex justify-content-center align-items-center">
+            @* <a href="/" class="navbar-brand">
+            <img src="~/Images/Picsart_24-12-07_18-34-26-772 (1).png" style="width:80px;" alt="Logo" />
+            </a> *@
+            <h1 class="display-4 fw-bold mx-auto text-center text-white">Delete Student Details </h1>
+        </div>
+    </nav><hr />
+
+    <div class="card shadow-lg mb-4">
+        <div class="card-header bg-danger text-white text-center">
+            <h4>Student Details</h4>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-4">Name</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Name)</dd>
+
+                <dt class="col-sm-4">Gender</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Gender)</dd>
+
+                <dt class="col-sm-4">Contact No</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.ContactNo)</dd>
+
+                <dt class="col-sm-4">Email</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Email)</dd>
+
+                <dt class="col-sm-4">Parent Name</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.ParentName)</dd>
+
+                <dt class="col-sm-4">Parent Contact No</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.ParentContactNo)</dd>
+
+                <dt class="col-sm-4">Current Address</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.CurrentAddress)</dd>
+
+                <dt class="col-sm-4">Permanent Address</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.PermanentAddress)</dd>
+
+                <dt class="col-sm-4">City</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.City)</dd>
+
+                <dt class="col-sm-4">Qualification</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Qualification)</dd>
+
+                <dt class="col-sm-4">Previous School/College</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.PreviousSchoolClg)</dd>
+
+                <dt class="col-sm-4">Marks</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Marks)</dd>
+
+                <dt class="col-sm-4">Course</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Course)</dd>
+
+                <dt class="col-sm-4">Admission Date</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.AdmissionDate)</dd>
+
+                <dt class="col-sm-4">Registration Fees</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.RegistrationFees)</dd>
+
+                <dt class="col-sm-4">Payment Mode</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.PaymentMode)</dd>
+
+                <dt class="col-sm-4">Transaction ID</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.TransactionId)</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button type="button" class="btn btn-danger px-4" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
+            Delete Record
+        </button>
+        <a asp-action="AdmissionTable" class="btn btn-secondary px-4 ml-2">Cancel</a>
+    </div>
+</div>
+
+<!-- Confirmation Modal -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="confirmDeleteModalLabel">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-center text-danger">
+                    Are you sure you want to delete this record? This action cannot be undone!
+                </p>
+            </div>
+            <div class="modal-footer">
+                <form asp-action="Delete" class="d-inline">
+                    <input type="hidden" asp-for="Id" />
+                    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                </form>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Styling -->
+<style>
+    .modal-header {
+        background: linear-gradient(45deg, #ff0000, #ff6b6b);
+        color: white;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+
+    .card-header {
+        background: linear-gradient(45deg, #dc3545, #e4606d);
+    }
+</style>

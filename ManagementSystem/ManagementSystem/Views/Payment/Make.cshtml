@@ -1,0 +1,208 @@
+﻿@model ManagementSystem.Models.Payment
+
+@{
+    ViewData["Title"] = "Make Payment";
+}
+
+<div class="container py-5">
+
+    <nav class="navbar py-3 mb-5" style="background: linear-gradient(to right, #e0f7fa, #81d4fa, #0288d1, #01579b, #0288d1, #81d4fa, #e0f7fa);">
+
+        <div class="container-fluid d-flex justify-content-center align-items-center">
+           @*  <a href="/" class="navbar-brand">
+                <img src="~/Image/Picsart_24-12-07_18-34-26-772 (2).png" style="width:80px;" alt="Logo" />
+            </a> *@
+            <h1 class="display-4 fw-bold mx-auto text-center text-white">Make Payment</h1>
+        </div>
+    </nav>
+
+    <div class="card shadow border-0" style="background: linear-gradient(135deg, #f3f9ff, #e6f7ee);">
+        <div class="card-body p-4">
+            <h4 class="card-title text-secondary mb-4">Payment Details</h4>
+            <form asp-action="Make">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <!-- Student ID -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="StudentId" class="form-label fw-bold text-primary">Student ID</label>
+                        <input asp-for="StudentId" class="form-control border-success" readonly />
+                    </div>
+
+                    <!-- Student Name -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="StudentName" class="form-label fw-bold text-primary">Student Name</label>
+                        <input asp-for="StudentName" class="form-control border-success" readonly />
+                    </div>
+
+                    <!-- Mobile Number -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="MobileNo" class="form-label fw-bold text-primary">Mobile Number</label>
+                        <input asp-for="MobileNo" class="form-control border-success" readonly />
+                    </div>
+
+                    <!-- Gmail -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Gmail" class="form-label fw-bold text-primary">Email</label>
+                        <input asp-for="Gmail" class="form-control border-success" readonly />
+                    </div>
+
+                    <!-- Parent Name -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="ParentName" class="form-label fw-bold text-primary">Parent Name</label>
+                        <input asp-for="ParentName" class="form-control border-success" readonly />
+                    </div>
+
+                    <!-- Course Name -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="CourseName" class="form-label fw-bold text-primary">Course Name</label>
+                        <input asp-for="CourseName" class="form-control border-success" readonly />
+                    </div>
+
+                    <!-- Receipt No -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="ReceiptNo" class="form-label fw-bold text-primary">Receipt Number</label>
+                        <input asp-for="ReceiptNo" class="form-control border-info" readonly value="@Model.ReceiptNo" />
+                    </div>
+
+                    <!-- Receipt Date -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="ReceiptDate" class="form-label fw-bold text-primary">Receipt Date</label>
+                        <input asp-for="ReceiptDate" class="form-control border-info" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" readonly />
+                    </div>
+
+                    <!-- Fees Status -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="FeesStatus" class="form-label fw-bold text-primary">Fees Status</label>
+                        <input asp-for="FeesStatus" class="form-control border-info" readonly />
+                    </div>
+
+                    <!-- Received Amount -->
+                    <!-- Received Amount -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="RecievedAmount" class="form-label fw-bold text-success">Received Amount</label>
+                        <input asp-for="RecievedAmount" id="receivedAmount" class="form-control border-info" oninput="updatePendingAmount()" />
+                        <span asp-validation-for="RecievedAmount" class="text-danger"></span>
+                    </div>
+
+                    <!-- Pending Amount -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="PendingAmount" class="form-label fw-bold text-success">Pending Amount</label>
+                        <input asp-for="PendingAmount" id="pendingAmount" class="form-control border-info" readonly />
+                        <span asp-validation-for="PendingAmount" class="text-danger"></span>
+                    </div>
+
+
+                    <!-- Received Mode -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="RecievedMode" class="form-label fw-bold text-success">Received Mode</label>
+                        <select asp-for="RecievedMode" id="receivedMode" class="form-control border-info" onchange="toggleTransactionNumber()">
+                            <option value="">-- Select Mode --</option>
+                            <option value="Cash">Cash</option>
+                            <option value="Online">Online</option>
+                            <option value="Cheque">Cheque</option>
+                        </select>
+                        <span asp-validation-for="RecievedMode" class="text-danger"></span>
+                    </div>
+
+                    <!-- Transaction Number -->
+                    <div class="col-md-6 mb-3" id="transactionNumberField" style="display: none;">
+                        <label asp-for="TransactionNumber" class="form-label fw-bold text-success">Transaction Number</label>
+                        <input asp-for="TransactionNumber" class="form-control border-info" />
+                        <span asp-validation-for="TransactionNumber" class="text-danger"></span>
+                    </div>
+
+                    <!-- Transaction Status -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="TransactionStatus" class="form-label fw-bold text-success">Transaction Status</label>
+                        <input asp-for="TransactionStatus" class="form-control border-info" />
+                        <span asp-validation-for="TransactionStatus" class="text-danger"></span>
+                    </div>
+
+                    <!-- Narration -->
+                    <div class="col-md-12 mb-3">
+                        <label asp-for="Narration" class="form-label fw-bold text-secondary">Narration</label>
+                        <textarea asp-for="Narration" class="form-control border-secondary"></textarea>
+                        <span asp-validation-for="Narration" class="text-danger"></span>
+                    </div>
+
+                    <!-- Received By -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="ReceivedBy" class="form-label fw-bold text-secondary">Received By</label>
+                        <input asp-for="ReceivedBy" class="form-control border-secondary" />
+                        <span asp-validation-for="ReceivedBy" class="text-danger"></span>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="TermCondition" class="form-label fw-bold text-secondary">Terms & Conditions</label>
+                        <input asp-for="TermCondition" class="form-control border-secondary" />
+                        <span asp-validation-for="TermCondition" class="text-danger"></span>
+                    </div>
+
+                    <!-- Receipt Remark -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="ReceiptRemark" class="form-label fw-bold text-secondary">Receipt Remark</label>
+                        <input asp-for="ReceiptRemark" class="form-control border-secondary" />
+                        <span asp-validation-for="ReceiptRemark" class="text-danger"></span>
+                    </div>
+
+                    <!-- Transaction Date -->
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="TransactionDate" class="form-label fw-bold text-secondary">Transaction Date</label>
+                        <input asp-for="TransactionDate" class="form-control border-secondary" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" readonly />
+                        <span asp-validation-for="TransactionDate" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <a asp-action="Click" asp-controller="Payment" class="btn btn-outline-danger">Back to List</a>
+                    <button type="submit" class="btn btn-success">Create Payment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function updatePendingAmount() {
+        // Replace with the total fees value from your backend
+        const totalFees = @Model.FeesStatus; // Example: Replace this with the actual TotalFees value
+        const receivedAmount = parseFloat(document.getElementById("receivedAmount").value) || 0;
+
+        // Calculate pending amount
+        const pendingAmount = totalFees - receivedAmount;
+
+        // Update the Pending Amount field
+        document.getElementById("pendingAmount").value = pendingAmount.toFixed(2);
+    }
+
+    
+    function toggleTransactionNumber() {
+        const receivedMode = document.getElementById("receivedMode").value;
+        const transactionField = document.getElementById("transactionNumberField");
+
+        if (receivedMode === "Online") {
+            transactionField.style.display = "block";
+        } else {
+            transactionField.style.display = "none";
+        }
+    }
+
+
+</script>
+
+
+<style>
+    body {
+        background: linear-gradient(to bottom, #a5d6a7, #e1f5fe, #b2ebf2, #a5d6a7);
+        /*background: linear-gradient(to right, #e8f5e9, #f0f4c3, #fff9c4, #ffffff);*/
+    }
+
+    .card {
+        border-radius: 15px;
+    }
+
+    textarea.form-control {
+        height: 100px;
+    }
+</style>

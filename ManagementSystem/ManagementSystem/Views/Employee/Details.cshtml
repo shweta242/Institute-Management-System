@@ -1,0 +1,98 @@
+﻿@model ManagementSystem.Models.Employee
+
+@{
+    ViewData["Title"] = "Employee Details";
+}
+
+<div class="container mt-5">
+    <!-- Page Header -->
+    <div class="text-center mb-4">
+        <h1 class="fw-bold text-primary">Employee Details</h1>
+        <p class="text-muted">View the details of the selected employee.</p>
+    </div>
+
+    <!-- Employee Information Table -->
+    <div class="card shadow-lg border-0">
+        <div class="card-header text-white" style="background: #007bff;">
+            <h3 class="text-center mb-0">Employee Information</h3>
+        </div>
+        <div class="card-body p-4">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead class="text-white" style="background-color: #007bff;">
+                        <tr>
+                            <th class="text-center" style="width: 30%;">Field</th>
+                            <th class="text-center" style="width: 70%;">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold text-primary">Name</td>
+                            <td>@Html.DisplayFor(model => model.Name)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-primary">Gender</td>
+                            <td>@Html.DisplayFor(model => model.Gender)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-primary">Email</td>
+                            <td>@Html.DisplayFor(model => model.Email)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-primary">Contact No</td>
+                            <td>@Html.DisplayFor(model => model.ContactNo)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-primary">Department</td>
+                            <td>@Html.DisplayFor(model => model.Department)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-primary">Specialized Subject</td>
+                            <td>@Html.DisplayFor(model => model.SpecializedSubject)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-primary">Designation</td>
+                            <td>@Html.DisplayFor(model => model.Designation)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-primary">Date of Joining</td>
+                            <td>@Html.DisplayFor(model => model.DateOfJoing)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-primary">Salary</td>
+                            <td>@Html.DisplayFor(model => model.Salary)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-primary">ID Proof Type</td>
+                            <td>@Html.DisplayFor(model => model.IdProofType)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-primary">ID Proof Number</td>
+                            <td>@Html.DisplayFor(model => model.IdProofNumber)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-primary">Status</td>
+                            <td>@Html.DisplayFor(model => model.Status)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-primary">Experience</td>
+                            <td>@Html.DisplayFor(model => model.Experience)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+       
+    
+
+    <!-- Action Buttons -->
+    <div class="d-flex justify-content-between mt-4">
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning px-4 py-2">
+            <i class="bi bi-pencil"></i> Edit
+        </a>
+            <a asp-action="EmployeeTable" class="btn btn-secondary px-4 py-2">
+            <i class="bi bi-arrow-left"></i> Back to List
+        </a>
+    </div>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,341 @@
+﻿@{
+    ViewData["Title"] = "Institute Management System";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        /* Background with linear gradient */
+        body {
+            /*background: linear-gradient(to right, #dbeaff, #b3e5fc, #d5f5e3, #ffffff);*/
+           /*background: linear-gradient(to right, #e8f5e9, #f0f4c3, #fff9c4, #ffffff);*/
+            background: linear-gradient(to right, #b2dfdb, #c8e6c9, #f0f4c3, #fff9c4);
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container and Header Styles */
+        header {
+           /*  background-color: rgba(0, 0, 0, 0.6); */
+            background: linear-gradient(45deg,#8fbc8f, #6b8e23,#556b2f,darkolivegreen, #556b2f, #6b8e23,#8fbc8f);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+            header .logout-btn {
+                background-color: #dc3545;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-weight: bold;
+            }
+
+                header .logout-btn:hover {
+                    background-color: #c82333;
+                }
+
+        /* Navigation Bar Styling */
+        .container-fluid nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+            .container-fluid nav a {
+                background-color: #28a745;
+                color: white;
+                border: none;
+                padding: 12px 20px;
+                border-radius: 5px;
+                text-align: center;
+                text-decoration: none;
+                font-weight: bold;
+                transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            }
+
+                .container-fluid nav a:hover {
+                    background-color: #218838;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                }
+
+                .container-fluid nav a.active {
+                    background-color: #007bff;
+                    color: white;
+                }
+
+                .container-fluid nav a i {
+                    margin-right: 8px;
+                }
+
+        /* Stats Box Styling */
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 280px;
+            max-width: 45%;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+            .stat-item:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            }
+
+        .stat-box h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .stat-box i {
+            font-size: 2rem;
+            color: #007bff;
+            margin-right: 10px;
+        }
+
+        .green {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .red {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        .media (max-width: 768px) {
+            .stat-item
+
+        {
+            min-width: 100%;
+            max-width: 100%;
+        }
+
+        .stat-box h2 {
+            font-size: 1.2rem;
+        }
+
+        .heading-styled {
+            font-size: 2.5rem; /* Larger font size for emphasis */
+            font-weight: bold; /* Makes the text bold */
+            font-family: 'Poppins', sans-serif; /* Modern and clean font */
+            color: #4A4A4A; /* Professional dark gray color */
+            text-align: center; /* Centers the text */
+            text-transform: uppercase; /* Makes all text uppercase */
+            letter-spacing: 3px; /* Adds spacing between letters */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+            margin: 20px 0; /* Adds space above and below */
+        }
+
+
+        nav a {
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+
+        }
+
+        .media (max-width: 576px) {
+            header
+
+        {
+            padding: 15px;
+        }
+
+        }
+    </style>
+</head>
+<body>
+
+
+    <header class="d-flex align-items-center justify-content-between p-3">
+        <a href="/" class="navbar-brand">
+            <img src="~/Image/Picsart_24-12-07_18-34-26-772 (2).png" style="width:80px;" alt="Logo" />
+        </a>
+        <h1 class="m-0">Institute Management System</h1>
+
+        <!-- Dropdown for User Info and Actions -->
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle d-flex align-items-center" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-circle me-2"></i>
+                @ViewBag.FullName<!-- Ensure this contains the user's full name -->
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                <li><a asp-action="Privacy" asp-controller="Home">Privacy </a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li>
+                    <form asp-controller="Home" asp-action="Logout" method="post" id="logoutForm">
+                        <button type="submit" class="dropdown-item btn btn-danger" id="logoutBtn">
+                            <i class="bi bi-box-arrow-right"></i> Logout
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+
+    </header>
+
+
+
+        <!-- Bootstrap JS (including Popper.js) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+   
+
+    <div class="container-fluid mt-4">
+        <nav>
+            <a asp-action="Table" asp-controller="Inquiry" class="btn btn-primary">
+                <i class="fa fa-question-circle"></i> Inquiry
+            </a>
+            <a asp-action="AdmissionTable" asp-controller="Admission" class="btn btn-primary">
+                <i class="bi bi-person-plus"></i> Admission
+            </a>
+            <a asp-action="Click" asp-controller="Payment" class="btn btn-primary">
+                <i class="bi bi-credit-card"></i> Payment
+            </a>
+            
+            <a asp-action="CourseTable" asp-controller="Course" class="btn btn-primary">
+                <i class="bi bi-book"></i> Course
+            </a>
+            <a asp-action="EmployeeTable" asp-controller="Employee" class="btn btn-primary">
+                <i class="bi bi-person-circle"></i> Employee
+            </a>
+            <a asp-action="Payment" asp-controller="Payment" class="btn btn-primary">
+                <i class="bi bi-wallet2"></i> Transaction
+            </a>
+            <a asp-action="NotesTable" asp-controller="Note" class="btn btn-primary">
+                <i class="bi bi-file-earmark-text       "></i> Notes
+            </a>
+
+            <a asp-action="" asp-controller="" class="btn btn-primary">
+                <i class="bi bi-graph-up"></i> Report
+            </a>
+            <a asp-action="About" asp-controller="Home" class="btn btn-primary">
+                <i class="bi bi-info-circle"></i> About
+            </a>
+            <a asp-action="Contact" asp-controller="Home" class="btn btn-primary">
+                <i class="bi bi-phone"></i> Contact
+            </a>
+        </nav>
+    </div>
+
+    <main class="container my-5">
+        <form>
+            <div class="row g-4">
+                <!-- Total Enquiries -->
+                <div class="col-md-6">
+                    <div class="stat-box shadow-lg p-4 rounded bg-light hover-shadow d-flex align-items-center" style="height: 120px;">
+                        <i class="fas fa-envelope me-4 fs-2 text-primary"></i>
+                        <div class="d-flex justify-content-between w-100">
+                            <h2 class="text-primary fs-5">Total Enquiries</h2>
+                            <span class="badge bg-primary text-white fs-6">@ViewData["TotalInquiry"]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total Admissions -->
+                <div class="col-md-6">
+                    <div class="stat-box shadow-lg p-4 rounded bg-light hover-shadow d-flex align-items-center" style="height: 120px;">
+                        <i class="fas fa-graduation-cap me-4 fs-2 text-danger"></i>
+                        <div class="d-flex justify-content-between w-100">
+                            <h2 class="text-danger fs-5">Total Admissions</h2>
+                            <span class="badge bg-danger text-white fs-6">@ViewData["TotalAdmission"]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total Employees -->
+                <div class="col-md-6">
+                    <div class="stat-box shadow-lg p-4 rounded bg-light hover-shadow d-flex align-items-center" style="height: 120px;">
+                        <i class="fas fa-users me-4 fs-2 text-info"></i>
+                        <div class="d-flex justify-content-between w-100">
+                            <h2 class="text-info fs-5">Total Employees</h2>
+                            <span class="badge bg-info text-white fs-6">@ViewData["TotalEmployee"]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total Courses -->
+                <div class="col-md-6">
+                    <div class="stat-box shadow-lg p-4 rounded bg-light hover-shadow d-flex align-items-center" style="height: 120px;">
+                        <i class="fas fa-book me-4 fs-2 text-warning"></i>
+                        <div class="d-flex justify-content-between w-100">
+                            <h2 class="text-warning fs-5">Total Courses</h2>
+                            <span class="badge bg-warning text-dark fs-6">@ViewData["TotalCourse"]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total Collection -->
+                <div class="col-md-6">
+                    <div class="stat-box shadow-lg p-4 rounded bg-light hover-shadow d-flex align-items-center" style="height: 120px;">
+                        <i class="fas fa-wallet me-4 fs-2 text-success"></i>
+                        <div class="d-flex justify-content-between w-100">
+                            <h2 class="text-success fs-5">Total Collection</h2>
+                            <span class="badge bg-success text-white fs-6">₹@ViewData["totalCollection"]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total Billing -->
+                <div class="col-md-6">
+                    <div class="stat-box shadow-lg p-4 rounded bg-light hover-shadow d-flex align-items-center" style="height: 120px;">
+                        <i class="fas fa-file-invoice-dollar me-4 fs-2 text-secondary"></i>
+                        <div class="d-flex justify-content-between w-100">
+                            <h2 class="text-secondary fs-5">Total Billing</h2>
+                            <span class="badge bg-secondary text-white fs-6">₹@ViewData["totalPending"]</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </main>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+
+
+    <script>
+        document.querySelectorAll('nav a').forEach(button => {
+            button.addEventListener('click', function () {
+                document.querySelectorAll('nav a').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

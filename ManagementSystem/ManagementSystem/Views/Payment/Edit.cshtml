@@ -1,0 +1,160 @@
+﻿@model ManagementSystem.Models.Payment
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 style="background: linear-gradient(to right, #3b3b3b, #d32f2f); color: white; padding: 10px;">
+    Edit
+</h1>
+
+
+
+<h4>Payment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Pid" />
+            <div class="form-group">
+                <label asp-for="StudentName" class="control-label"></label>
+                <input asp-for="StudentName" class="form-control" />
+                <span asp-validation-for="StudentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentId" class="control-label"></label>
+                <select asp-for="StudentId" class="form-control" asp-items="ViewBag.StudentId"></select>
+                <span asp-validation-for="StudentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MobileNo" class="control-label"></label>
+                <input asp-for="MobileNo" class="form-control" />
+                <span asp-validation-for="MobileNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gmail" class="control-label"></label>
+                <input asp-for="Gmail" class="form-control" />
+                <span asp-validation-for="Gmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParentName" class="control-label"></label>
+                <input asp-for="ParentName" class="form-control" />
+                <span asp-validation-for="ParentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CourseName" class="control-label"></label>
+                <input asp-for="CourseName" class="form-control" />
+                <span asp-validation-for="CourseName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReceiptDate" class="control-label"></label>
+                <input asp-for="ReceiptDate" class="form-control" />
+                <span asp-validation-for="ReceiptDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReceiptNo" class="control-label"></label>
+                <input asp-for="ReceiptNo" class="form-control" />
+                <span asp-validation-for="ReceiptNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FeesStatus" class="control-label"></label>
+                <input asp-for="FeesStatus" class="form-control" />
+                <span asp-validation-for="FeesStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RecievedAmount" class="control-label"></label>
+                <input asp-for="RecievedAmount" class="form-control" />
+                <span asp-validation-for="RecievedAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RecievedMode" class="control-label"></label>
+                <input asp-for="RecievedMode" class="form-control" />
+                <span asp-validation-for="RecievedMode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransactionStatus" class="control-label"></label>
+                <input asp-for="TransactionStatus" class="form-control" />
+                <span asp-validation-for="TransactionStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransactionNumber" class="control-label"></label>
+                <input asp-for="TransactionNumber" class="form-control" />
+                <span asp-validation-for="TransactionNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Narration" class="control-label"></label>
+                <input asp-for="Narration" class="form-control" />
+                <span asp-validation-for="Narration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReceivedBy" class="control-label"></label>
+                <input asp-for="ReceivedBy" class="form-control" />
+                <span asp-validation-for="ReceivedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TermCondition" class="control-label"></label>
+                <input asp-for="TermCondition" class="form-control" />
+                <span asp-validation-for="TermCondition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReceiptRemark" class="control-label"></label>
+                <input asp-for="ReceiptRemark" class="form-control" />
+                <span asp-validation-for="ReceiptRemark" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransactionDate" class="control-label"></label>
+                <input asp-for="TransactionDate" class="form-control" />
+                <span asp-validation-for="TransactionDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PendingAmount" class="control-label"></label>
+                <input asp-for="PendingAmount" class="form-control" />
+                <span asp-validation-for="PendingAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Payment" asp-controller="Payment">Back to List</a>
+</div>
+
+@* 
+    <h1 style="background: linear-gradient(to right, #2c2c2c, #8B0000); color: white; padding: 10px;">
+    Edit
+    background: linear-gradient(to right, #003366, #3399ff);
+background: linear-gradient(to right, #004d40, #66bb6a);
+background: linear-gradient(to right, #4a148c, #f06292);
+background: linear-gradient(to right, #37474f, #cfd8dc);
+background: linear-gradient(to right, #b71c1c, #ff7043);
+background: linear-gradient(to right, #212121, #1e88e5);
+background: linear-gradient(to right, #1b5e20, #fdd835);
+background: linear-gradient(to right, #9c27b0, #f48fb1);
+background: linear-gradient(to right, #29b6f6, #8e24aa);
+background: linear-gradient(to right, #ff6f00, #d32f2f);
+background: linear-gradient(to right, #3e2723, #d7ccc8);
+background: linear-gradient(to right, #e91e63, #9c4dcc);
+background: linear-gradient(to right, #5c6bc0, #42a5f5);
+background: linear-gradient(to right, #0d47a1, #64b5f6);
+background: linear-gradient(to right, #263238, #81c784);
+MULTI COLOR
+background: linear-gradient(to right, #003366, #9c27b0, #f06292, #b71c1c);
+background: linear-gradient(to right, #004d40, #66bb6a, #fdd835, #ff7043);
+background: linear-gradient(to right, #1b5e20, #81c784, #fdd835, #1e88e5);
+background: linear-gradient(to right, #9c4dcc, #42a5f5, #00bcd4, #66bb6a);
+background: linear-gradient(to right, #f44336, #ff9800, #ffeb3b, #4caf50);
+background: linear-gradient(to right, #607d8b, #3f51b5, #9c27b0, #f06292);
+background: linear-gradient(to right, #2196f3, #00bcd4, #4caf50, #ffeb3b);
+background: linear-gradient(to right, #003366, #00796b, #66bb6a, #fdd835);
+background: linear-gradient(to right, #d32f2f, #b71c1c, #f48fb1, #ffffff);
+background: linear-gradient(to right, #42a5f5, #66bb6a, #8e24aa, #ff7043);
+
+
+
+</h1>
+ *@
+    

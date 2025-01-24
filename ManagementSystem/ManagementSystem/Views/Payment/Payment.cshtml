@@ -1,0 +1,259 @@
+﻿@model IEnumerable<ManagementSystem.Models.Payment>
+
+@{
+    ViewData["Title"] = "Payment";
+}
+<nav class="navbar py-3 mb-5" style="background: linear-gradient(to right, #e0f7fa, #81d4fa, #0288d1, #01579b, #0288d1, #81d4fa, #e0f7fa);">
+    <div class="container-fluid d-flex justify-content-center align-items-center">
+        <a href="/" class="navbar-brand">
+            <img src="~/Image/Picsart_24-12-07_18-34-26-772 (2).png" style="width:80px;" alt="Logo" />
+        </a>
+        <h1 class="display-4 fw-bold mx-auto text-center text-white">Payment Table</h1>
+    </div>
+</nav>
+<div class="container-fluid mt-5">
+
+    <div class="container-fluid my-3">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <!-- Search Filter -->
+            <div class="text-end">
+                <form method="get" class="row g-2">
+                    <div class="col-auto">
+                        <label for="fromDate" class="form-label">From Date:</label>
+                        <input type="date" id="fromDate" name="fromDate" class="form-control form-control-sm" />
+                    </div>
+                    <div class="col-auto">
+                        <label for="toDate" class="form-label">To Date:</label>
+                        <input type="date" id="toDate" name="toDate" class="form-control form-control-sm" />
+                    </div>
+                    <div class="col-auto d-flex align-items-end">
+                        <button type="submit" class="btn btn-primary btn-sm">Search</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Date Filter -->
+
+
+            <div>
+                <h4 class="d-flex">Total Payment: @Model.Count()</h4>
+                <form asp-controller="Payment" asp-action="Payment" method="get" class="d-flex">
+                    <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" class="form-control form-control-sm me-2" placeholder="Search" />
+                    <button type="submit" class="btn btn-primary btn-sm">Search</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Action Buttons (Initially Hidden) -->
+        <div class="mb-3 d-flex justify-content-between" id="actionButtons" style="display: none;">
+            <!-- Left Side: Create New and Back Page buttons -->
+            <div class="d-flex gap-3">
+                <a asp-action="Dashboard" asp-controller="Home" class="btn btn-secondary btn-sm">Back Page</a>
+            </div>
+
+            <!-- Right Side: Edit, Details, Delete, WhatsApp, and Message buttons -->
+            <div class="d-flex gap-3">
+                <button id="editBtn" class="btn btn-warning btn-sm" disabled>
+                    <i class="fas fa-edit"></i> Edit
+                </button>
+
+                <button id="detailsBtn" class="btn btn-info btn-sm" disabled>
+                    <i class="fas fa-info-circle"></i> Details
+                </button>
+
+                <button id="deleteBtn" class="btn btn-danger btn-sm" disabled>
+                    <i class="fas fa-trash"></i> Delete
+                </button>
+
+                <!-- WhatsApp Button -->
+                <button id="whatsappButton" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#selectStudentModal">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </button>
+            </div>
+        </div>
+
+        <!-- Table with Scrollable Container -->
+        <div class="table-responsive" style="max-height: 400px; overflow: auto; border: 1px solid #ccc; margin: 20px; padding: 10px; overflow-x: auto;">
+            <table class="table table-striped table-hover table-bordered" id="paymentTable" style="min-width: 300px;">
+                <thead class="bg-primary text-white sticky-lg-top">
+                      
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.StudentId)</th>
+                        <th>@Html.DisplayNameFor(model => model.StudentName)</th>
+                       @*  <th>@Html.DisplayNameFor(model => model.MobileNo)</th>
+                        <th>@Html.DisplayNameFor(model => model.Gmail)</th>
+                        <th>@Html.DisplayNameFor(model => model.ParentName)</th> *@
+                        <th>@Html.DisplayNameFor(model => model.CourseName)</th>  
+                        @* <th>@Html.DisplayNameFor(model => model.ReceiptDate)</th>
+                        <th>@Html.DisplayNameFor(model => model.ReceiptNo)</th> *@
+                        <th>@Html.DisplayNameFor(model => model.FeesStatus)</th>
+                        <th>@Html.DisplayNameFor(model => model.RecievedAmount)</th> 
+                        <th>@Html.DisplayNameFor(model => model.PendingAmount)</th>
+                        <th>@Html.DisplayNameFor(model => model.RecievedMode)</th>
+                        @* <th>@Html.DisplayNameFor(model => model.TransactionStatus)</th>
+                        <th>@Html.DisplayNameFor(model => model.TransactionNumber)</th> *@
+                       @*  <th>@Html.DisplayNameFor(model => model.Narration)</th> *@
+                        <th>@Html.DisplayNameFor(model => model.ReceivedBy)</th>
+                        @* <th>@Html.DisplayNameFor(model => model.TermCondition)</th>
+                        <th>@Html.DisplayNameFor(model => model.ReceiptRemark)</th>*@
+                        <th>@Html.DisplayNameFor(model => model.TransactionDate)</th> 
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="selectable-row" data-id="@item.Pid" data-name="@item.StudentName">
+                            <td>@Html.DisplayFor(modelItem => item.StudentId)</td>
+                            <td>@Html.DisplayFor(modelItem => item.StudentName)</td>
+                           @*  <td>@Html.DisplayFor(modelItem => item.MobileNo)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Gmail)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ParentName)</td> *@
+                            <td>@Html.DisplayFor(modelItem => item.CourseName)</td>
+                           @*  <td>@Html.DisplayFor(modelItem => item.ReceiptDate)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ReceiptNo)</td> *@
+                            <td>@Html.DisplayFor(modelItem => item.FeesStatus)</td>
+                            <td class ="text-success fw-bold">@Html.DisplayFor(modelItem => item.RecievedAmount)/-</td>
+                            <td class="text-danger fw-bold">@Html.DisplayFor(modelItem => item.PendingAmount)/-</td>
+                            <td>@Html.DisplayFor(modelItem => item.RecievedMode)</td>
+                           @*  <td>@Html.DisplayFor(modelItem => item.TransactionStatus)</td>
+                            <td>@Html.DisplayFor(modelItem => item.TransactionNumber)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Narration)</td> *@
+                            <td>@Html.DisplayFor(modelItem => item.ReceivedBy)</td>
+                            @* <td>@Html.DisplayFor(modelItem => item.TermCondition)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ReceiptRemark)</td> *@
+                            <td>@Html.DisplayFor(modelItem => item.TransactionDate)</td>
+                            
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Sticky Header */
+    .sticky-header th {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background-color: #007bff;
+        color: white;
+    }
+
+    /* Action Buttons */
+    .action-buttons {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border-bottom: 2px solid #ddd;
+    }
+
+        .action-buttons button {
+            padding: 12px 25px;
+            font-size: 14px;
+            text-align: center;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+    /* Action Column */
+    .action-column {
+        position: sticky;
+        right: 0;
+        background-color: #f8f9fa;
+        z-index: 1;
+    }
+
+    /* Responsive Table */
+    .table-responsive {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    .selected {
+        background-color: #d1ecf1;
+    }
+
+    
+    body {
+        background: linear-gradient(to bottom, #a5d6a7, #e1f5fe, #b2ebf2, #a5d6a7);
+                /*background: linear-gradient(to right, #e8f5e9, #f0f4c3, #fff9c4, #ffffff);*/
+    }
+
+</style>
+
+<script>
+    let selectedRow = null;
+    let selectedPaymentId = null;
+    let selectedPaymentName = null;
+
+    document.querySelectorAll('.selectable-row').forEach(row => {
+        row.addEventListener('click', (e) => {
+            if (selectedRow) {
+                selectedRow.classList.remove('selected');
+            }
+            selectedRow = row;
+            selectedRow.classList.add('selected');
+
+            const actionButtons = document.querySelectorAll('#editBtn, #deleteBtn, #detailsBtn');
+            actionButtons.forEach(button => button.disabled = false);
+
+            selectedPaymentId = row.getAttribute('data-id');
+            selectedPaymentName = row.getAttribute('data-name');
+        });
+    });
+
+    document.querySelector('#editBtn').addEventListener('click', () => confirmAction('edit'));
+    document.querySelector('#deleteBtn').addEventListener('click', () => confirmAction('delete'));
+    document.querySelector('#detailsBtn').addEventListener('click', () => confirmAction('details'));
+
+    function confirmAction(action) {
+        if (!selectedRow) {
+            alert("Please select a payment before performing this action.");
+            return;
+        }
+        let message = `Are you sure you want to ${action} payment for "${selectedPaymentName}"?`;
+        if (action === 'delete') {
+            message += " This action cannot be undone.";
+        }
+        if (confirm(message)) {
+            window.location.href = `/Payment/${capitalize(action)}/${selectedPaymentId}`;
+        }
+    }
+
+    function capitalize(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    document.querySelector('#whatsappButton').addEventListener('click', () => {
+        if (!selectedRow) {
+            alert("Please select a student before performing this action.");
+            return;
+        }
+
+        const phoneNumber = selectedRow.querySelector('td:nth-child(3)').textContent; // Assuming ContactNo is in the 3rd column
+        const message = `Hello ${selectedPaymentName}, this is a message from our Admission Team. Please let us know if you have any questions.`;
+        const encodedMessage = encodeURIComponent(message);
+
+        // Open WhatsApp with the pre-filled message
+        window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+    });
+
+    document.querySelector('#messageButton').addEventListener('click', () => {
+        if (!selectedRow) {
+            alert("Please select a student before performing this action.");
+            return;
+        }
+
+        const phoneNumber = selectedRow.querySelector('td:nth-child(3)').textContent; // Assuming ContactNo is in the 3rd column
+        const message = `Hello ${selectedPaymentName}, this is a reminder from our Admission Team.`;
+
+        // Redirect to a messaging functionality (replace URL with your messaging endpoint)
+        const messageUrl = `/Admission/SendMessage?phone=${phoneNumber}&message=${encodeURIComponent(message)}`;
+        window.location.href = messageUrl;
+    });
+</script>

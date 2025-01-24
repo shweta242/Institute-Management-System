@@ -1,0 +1,124 @@
+﻿@model ManagementSystem.Models.Course
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0">
+        <div class="card-header text-white bg-gradient" style="background: linear-gradient(to right, #6a11cb, #2575fc);">
+            <h3 class="text-center mb-0">Edit Course Details</h3>
+        </div>
+        <div class="card-body p-4">
+            <form asp-action="Edit" class="needs-validation" novalidate>
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <input type="hidden" asp-for="Id" />
+
+                <!-- Table Layout -->
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <!-- Course Name -->
+                            <tr>
+                                <th class="bg-light text-end align-middle" style="width: 25%;">
+                                    <label asp-for="Name" class="form-label fw-bold">Course Name</label>
+                                </th>
+                                <td>
+                                    <input asp-for="Name" class="form-control border-primary" placeholder="Enter course name" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </td>
+                            </tr>
+
+                            <!-- Front-End Technology -->
+                            <tr>
+                                <th class="bg-light text-end align-middle">
+                                    <label asp-for="FrontEnd" class="form-label fw-bold">Front-End Technology</label>
+                                </th>
+                                <td>
+                                    <input asp-for="FrontEnd" class="form-control border-success" placeholder="Enter front-end technology" />
+                                    <span asp-validation-for="FrontEnd" class="text-danger"></span>
+                                </td>
+                            </tr>
+
+                            <!-- Back-End Technology -->
+                            <tr>
+                                <th class="bg-light text-end align-middle">
+                                    <label asp-for="BackEnd" class="form-label fw-bold">Back-End Technology</label>
+                                </th>
+                                <td>
+                                    <input asp-for="BackEnd" class="form-control border-info" placeholder="Enter back-end technology" />
+                                    <span asp-validation-for="BackEnd" class="text-danger"></span>
+                                </td>
+                            </tr>
+
+                            <!-- Database Language -->
+                            <tr>
+                                <th class="bg-light text-end align-middle">
+                                    <label asp-for="DataBaseLanguage" class="form-label fw-bold">Database Language</label>
+                                </th>
+                                <td>
+                                    <input asp-for="DataBaseLanguage" class="form-control border-warning" placeholder="Enter database language" />
+                                    <span asp-validation-for="DataBaseLanguage" class="text-danger"></span>
+                                </td>
+                            </tr>
+
+                            <!-- Duration -->
+                            <tr>
+                                <th class="bg-light text-end align-middle">
+                                    <label asp-for="Duration" class="form-label fw-bold">Course Duration</label>
+                                </th>
+                                <td>
+                                    <input asp-for="Duration" class="form-control border-danger" placeholder="Enter duration in weeks or months" />
+                                    <span asp-validation-for="Duration" class="text-danger"></span>
+                                </td>
+                            </tr>
+
+                            <!-- Course Fees -->
+                            <tr>
+                                <th class="bg-light text-end align-middle">
+                                    <label asp-for="CourseFees" class="form-label fw-bold">Course Fees</label>
+                                </th>
+                                <td>
+                                    <input asp-for="CourseFees" class="form-control border-dark" placeholder="Enter course fees" />
+                                    <span asp-validation-for="CourseFees" class="text-danger"></span>
+                                </td>
+                            </tr>
+
+                            <!-- Course Format -->
+                            <tr>
+                                <th class="bg-light text-end align-middle">
+                                    <label asp-for="CourseFormat" class="form-label fw-bold">Course Format</label>
+                                </th>
+                                <td>
+                                    <input asp-for="CourseFormat" class="form-control border-secondary" placeholder="Online / Offline / Hybrid" />
+                                    <span asp-validation-for="CourseFormat" class="text-danger"></span>
+                                </td>
+                            </tr>
+
+                            <!-- Description -->
+                            <tr>
+                                <th class="bg-light text-end align-middle">
+                                    <label asp-for="Description" class="form-label fw-bold">Course Description</label>
+                                </th>
+                                <td>
+                                    <textarea asp-for="Description" class="form-control border-success" rows="3" placeholder="Enter detailed description"></textarea>
+                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Buttons -->
+                <div class="d-flex justify-content-end mt-4">
+                    <button type="submit" class="btn btn-success px-4 me-2 rounded-pill shadow">
+                        <i class="bi bi-save"></i> Save
+                    </button>
+                    <a asp-action="CourseTable" asp-controller="Course" class="btn btn-secondary px-4 rounded-pill shadow">
+                        <i class="bi bi-arrow-left"></i> Back to List
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

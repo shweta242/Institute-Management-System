@@ -1,0 +1,86 @@
+﻿@model IEnumerable<ManagementSystem.Models.Course>
+
+@{
+    ViewData["Title"] = "CourseTable";
+}
+
+<h1>CourseTable</h1>
+
+<form asp-controller="Inquiry" asp-action="Table" method="get" class="d-flex mb-4">
+    <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" class="form-control me-2" placeholder="Search inquiries...">
+    <button type="submit" class="btn btn-primary">
+        <i class="fas fa-search"></i> Search
+    </button>
+</form>
+<br />
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<!-- Search Bar -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FrontEnd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BackEnd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataBaseLanguage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseFees)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseFormat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FrontEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BackEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataBaseLanguage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseFees)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseFormat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,138 @@
+﻿@model ManagementSystem.Models.Inquiry
+
+@{
+    ViewData["Title"] = "Edit Inquiry";
+}
+
+<div class="container my-5">
+    <!-- Page Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="text-primary">
+            <i class="fas fa-edit"></i> Edit Inquiry
+        </h1>
+        
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 mx-auto">
+            <form asp-action="Edit" class="p-4 shadow rounded bg-light">
+                <!-- Validation Summary -->
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <input type="hidden" asp-for="Id" />
+
+                <!-- Name -->
+                <div class="form-group mb-3">
+                    <label asp-for="Name" class="form-label fw-bold">
+                        <i class="fas fa-user"></i> Name
+                    </label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <!-- Contact -->
+                <div class="form-group mb-3">
+                    <label asp-for="Contact" class="form-label fw-bold">
+                        <i class="fas fa-phone"></i> Contact
+                    </label>
+                    <input asp-for="Contact" class="form-control" />
+                    <span asp-validation-for="Contact" class="text-danger"></span>
+                </div>
+
+                <!-- Address -->
+                <div class="form-group mb-3">
+                    <label asp-for="Address" class="form-label fw-bold">
+                        <i class="fas fa-map-marker-alt"></i> Address
+                    </label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+
+                <!-- City -->
+                <div class="form-group mb-3">
+                    <label asp-for="City" class="form-label fw-bold">
+                        <i class="fas fa-city"></i> City
+                    </label>
+                    <input asp-for="City" class="form-control" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+
+                <!-- Date of Birth -->
+                <div class="form-group mb-3">
+                    <label asp-for="Dob" class="form-label fw-bold">
+                        <i class="fas fa-calendar-alt"></i> Date of Birth
+                    </label>
+                    <input asp-for="Dob" class="form-control" type="date" />
+                    <span asp-validation-for="Dob" class="text-danger"></span>
+                </div>
+
+                <!-- Qualification -->
+                <div class="form-group mb-3">
+                    <label asp-for="Qualification" class="form-label fw-bold">
+                        <i class="fas fa-graduation-cap"></i> Qualification
+                    </label>
+                    <input asp-for="Qualification" class="form-control" />
+                    <span asp-validation-for="Qualification" class="text-danger"></span>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group mb-3">
+                    <label asp-for="Email" class="form-label fw-bold">
+                        <i class="fas fa-envelope"></i> Email
+                    </label>
+                    <input asp-for="Email" class="form-control" type="email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <!-- Course -->
+                <div class="form-group mb-3">
+                    <label asp-for="Course" class="form-label fw-bold">
+                        <i class="fas fa-book"></i> Course</label>
+                    <select asp-for="Course" class="form-control" asp-items="ViewBag.Courses">
+                        <option>Update Courses</option>
+                        </select>
+                    <span asp-validation-for="Course" class="text-danger"></span>
+                </div>
+
+                <!-- Fees -->
+                <div class="form-group mb-3">
+                    <label asp-for="Fees" class="form-label fw-bold">
+                        <i class="fas fa-money-bill-wave"></i> Fees
+                    </label>
+                    <input asp-for="Fees" class="form-control" type="number" step="0.01" />
+                    <span asp-validation-for="Fees" class="text-danger"></span>
+                </div>
+
+                <!-- Remark -->
+                <div class="form-group mb-3">
+                    <label asp-for="Remark" class="form-label fw-bold">
+                        <i class="fas fa-comment"></i> Remark
+                    </label>
+                    <textarea asp-for="Remark" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="Remark" class="text-danger"></span>
+                </div>
+
+                <!-- Inquiry Taken By -->
+                <div class="form-group mb-3">
+                    <label asp-for="InquiryTakenBy" class="form-label fw-bold">
+                        <i class="fas fa-user-tie"></i> Inquiry Taken By
+                    </label>
+                    <input asp-for="InquiryTakenBy" class="form-control" />
+                    <span asp-validation-for="InquiryTakenBy" class="text-danger"></span>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save
+                    </button>
+                </div>
+                <a asp-action="Table" class="btn btn-outline-secondary">
+                    <i class="fas fa-arrow-center"></i> Back to List
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
